@@ -9,22 +9,16 @@
     Title="XTomStudio">
 
     <ShellContent
-        Title="Dashboard"
-        Icon="{StaticResource IconDashboard}"
+        Title="Main"
+        Icon="{StaticResource IconMainPage}"
         ContentTemplate="{DataTemplate pages:MainPage}"
         Route="main" />
 
     <ShellContent
-        Title="Projects"
-        Icon="{StaticResource IconProjects}"
-        ContentTemplate="{DataTemplate pages:ProjectListPage}"
-        Route="projects" />
-
-    <ShellContent
-        Title="Manage Meta"
-        Icon="{StaticResource IconMeta}"
-        ContentTemplate="{DataTemplate pages:ManageMetaPage}"
-        Route="manage" />
+        Title="XTom Server Connection"
+        Icon="{StaticResource IconServer}"
+        ContentTemplate="{DataTemplate pages:ServerConnectionPage}"
+        Route="serverConnection"/>
 
     <Shell.FlyoutFooter>
         <Grid Padding="15">
