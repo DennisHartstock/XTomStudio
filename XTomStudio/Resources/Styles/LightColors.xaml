@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:media="using:Microsoft.UI.Xaml.Media">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="StaticColors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <SolidColorBrush x:Key="XTSAppBackgroundBaseBrush" Color="#EDEDED" />
+    <SolidColorBrush x:Key="XTSAppXTomBackgroundBaseBrush" Color="#F3F3F3" />
+
+    <SolidColorBrush x:Key="ButtonBackground" Color="{ThemeResource SystemAccentColor}"/>
+    <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="{ThemeResource SystemAccentColorLight1}"/>
+    <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="{ThemeResource SystemAccentColorDark1}"/>
+
+
+    <SolidColorBrush x:Key="TileBackgroundFillColorBrush" Color="#0D000000" />
+    <SolidColorBrush x:Key="TileBackgroundMouseOverColorBrush" Color="#22000000" />
+    <SolidColorBrush x:Key="TileStrokeColorDefaultBrush" Color="{ThemeResource SystemColorWindowTextColor}" />
+    <SolidColorBrush x:Key="TilePointerOverBorderBrush" Color="#78000000" />
+    <SolidColorBrush x:Key="TileBorderDefaultBrush" Color="#AA000000" />
+
+    <!--<media:AcrylicBrush x:Key="CustomAcrylicBrush" TintOpacity="0.8" TintColor="#FF000000" FallbackColor="#FF008000" />-->
+    <SolidColorBrush x:Key="ActionPaneFillColorBrush" Color="#0D000000" />
+    <SolidColorBrush x:Key="ActionPaneStepsFillColorBrush" Color="#0D000000" />
+    <SolidColorBrush x:Key="AppBarButtonBackgroundBrush" Color="{StaticResource XTomMainColor}"/>
+    
+    <!-- Project Pane -->
+    <SolidColorBrush x:Key="ProjectPaneBarEllipseBrush" Color="{StaticResource XTomMainColor}"/>
+    <SolidColorBrush x:Key="ProjectPaneButtonBrush" Color="{StaticResource XTomMainColor}"/>
+
+    <SolidColorBrush x:Key="DialogBackgroundErrorMessageBrush" Color="#22000000" />
+
+    <media:AcrylicBrush x:Key="NewProjectBackgroundFillColorBrush" TintOpacity="0.5" TintColor="#FF000000" TintLuminosityOpacity="0.1"  FallbackColor="#FF000080" />
+    <media:AcrylicBrush x:Key="NewProjectBackgroundFillColorBrush2" TintOpacity="0.5" TintColor="#FF000000" TintLuminosityOpacity="0.1"  FallbackColor="#FF000080" />
+
+</ResourceDictionary>
