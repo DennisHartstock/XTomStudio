@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35514.174 d17.12
+VisualStudioVersion = 17.12.35514.174
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTomStudio", "XTomStudio\XTomStudio.csproj", "{3EF12003-1523-4EE9-8C39-FADE9DB1FB66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTomStudio.Core", "XTomStudio.Core\XTomStudio.Core.csproj", "{CC4A5A11-C4CD-4660-A70C-99A89F72DFA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{3EF12003-1523-4EE9-8C39-FADE9DB1FB66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EF12003-1523-4EE9-8C39-FADE9DB1FB66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EF12003-1523-4EE9-8C39-FADE9DB1FB66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC4A5A11-C4CD-4660-A70C-99A89F72DFA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC4A5A11-C4CD-4660-A70C-99A89F72DFA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC4A5A11-C4CD-4660-A70C-99A89F72DFA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC4A5A11-C4CD-4660-A70C-99A89F72DFA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

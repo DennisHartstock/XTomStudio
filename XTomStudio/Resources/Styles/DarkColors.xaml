@@ -33,6 +33,4 @@
 
     <media:AcrylicBrush x:Key="NewProjectBackgroundFillColorBrush" TintOpacity="0.8" TintColor="#FF555555" TintLuminosityOpacity="0.2"  FallbackColor="#FF666666" />
     <media:AcrylicBrush x:Key="NewProjectBackgroundFillColorBrush2" TintOpacity="0.5" TintColor="#FF000000" FallbackColor="#FF666666" />
-
-
 </ResourceDictionary>
