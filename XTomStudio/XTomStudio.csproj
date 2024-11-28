@@ -63,6 +63,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Models\LocalSettingsOptions.cs" />
+	  <Compile Remove="Models\ProjectStepDescription.cs" />
+	  <Compile Remove="Models\SettingsModel.cs" />
+	  <Compile Remove="Models\XTomCtScanProject.cs" />
+	  <Compile Remove="Services\ActivationService.cs" />
+	  <Compile Remove="Services\LocalSettingsService.cs" />
+	  <Compile Remove="Services\NavigationService.cs" />
+	  <Compile Remove="Services\NavigationViewService.cs" />
+	  <Compile Remove="Services\PageService.cs" />
+	  <Compile Remove="Services\ProjectPaneNavigationService.cs" />
+	  <Compile Remove="Services\ThemeSelectorService.cs" />
+	  <Compile Remove="Services\WebViewService.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.10" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 	</ItemGroup>
@@ -71,8 +86,10 @@
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="9.1.1" />
 		<PackageReference Include="Microsoft.Data.Sqlite.Core" Version="9.0.0" />
+		<PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
 		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.10" />
 		<PackageReference Include="Syncfusion.Maui.Toolkit" Version="1.0.2" />
+		<PackageReference Include="Uno.UI" Version="5.5.76" />
 		<!--<PackageReference Include="Uno.UI" Version="5.5.76" />-->
 	</ItemGroup>
 
@@ -81,6 +98,24 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Controls\AxesDisplayControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\HVOnOffControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\ImageViewerControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\NewProjectControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\ProjectActionPaneControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\ProjectStepSetupSample.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Dialogs\Connect2XTomServerDialog.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

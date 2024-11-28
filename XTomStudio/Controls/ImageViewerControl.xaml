@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="XTomStudio.Controls.ImageViewerControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:XTomStudio.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="Beige">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Menu Buttons -->
+        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal" Padding="16" VerticalAlignment="Top">
+            <Button Background="MediumAquamarine" BorderBrush="Aquamarine" BorderThickness="2" Margin="16">
+                <StackPanel>
+                    <SymbolIcon Symbol="Save"></SymbolIcon>
+                    <TextBox Text="Save"></TextBox>
+                </StackPanel>
+            </Button>
+
+            <StackPanel Padding="16, 0, 16, 0" Orientation="Horizontal" VerticalAlignment="Top">
+                <Button Background="MediumAquamarine" BorderBrush="Aquamarine" BorderThickness="2" Margin="16">
+                    <StackPanel>
+                        <SymbolIcon Symbol="GlobalNavigationButton"></SymbolIcon>
+                        <TextBox Text="Setup"></TextBox>
+                    </StackPanel>
+                </Button>
+                <Button Background="MediumAquamarine" BorderBrush="Aquamarine" BorderThickness="2" Margin="16">
+                    <StackPanel>
+                        <SymbolIcon Symbol="Camera"></SymbolIcon>
+                        <TextBox Text="Live On"></TextBox>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+                <StackPanel Padding="16, 0, 16, 0" Orientation="Horizontal" VerticalAlignment="Top">
+                <Button Background="MediumAquamarine" BorderBrush="Aquamarine" BorderThickness="2" Margin="16">
+                    <StackPanel>
+                        <SymbolIcon Symbol="Accept"></SymbolIcon>
+                        <TextBox Text="Adjust"></TextBox>
+                    </StackPanel>
+                </Button>
+                <Button Background="MediumAquamarine" BorderBrush="Aquamarine" BorderThickness="2" Margin="16">
+                    <StackPanel>
+                        <SymbolIcon Symbol="HangUp"></SymbolIcon>
+                        <TextBox Text="Tools"></TextBox>
+                    </StackPanel>
+                </Button>
+                <Button Background="MediumAquamarine" BorderBrush="Aquamarine" BorderThickness="2" Margin="16">
+                    <StackPanel>
+                        <SymbolIcon Symbol="ZoomOut"></SymbolIcon>
+                        <TextBox Text="Expand"></TextBox>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Camera -->
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Padding="16" VerticalAlignment="Top">
+            <DropDownButton Background="MediumAquamarine" BorderBrush="Aquamarine" BorderThickness="2" Margin="16">
+
+                <StackPanel>
+                    <SymbolIcon Symbol="View"></SymbolIcon>
+                    <TextBox Text="Views"></TextBox>
+                </StackPanel>
+
+            </DropDownButton>
+
+            <Button Background="MediumAquamarine" BorderBrush="Aquamarine" BorderThickness="2" Margin="16">
+                <StackPanel Orientation="Vertical" >
+                    <SymbolIcon Symbol="Setting"></SymbolIcon>
+                    <TextBox Text="Settings"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <!-- Profiles -->
+        <Image 
+            Grid.Column="0" 
+            Grid.Row="1" 
+            Width="1280"  
+            Height="960" 
+            Source="Z:\ProCon\UserManuals_PXR\Add-Ons\Metrology Upgrade\IMG_1468.jpg" 
+            Margin="24" 
+            VerticalAlignment="Top" 
+            HorizontalAlignment="Stretch"/>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom">
+            <Image 
+                Width="512" 
+                Height="256" 
+                Source="Z:\ProCon\Temp\Max\EPLAN\Data\Bilder\Procon X-Ray GmbH\Siemens\Industrial_Controls\3SU1BLM\product_picture_G_IC03_XX_07637I.jpg" 
+                Margin="16" 
+                VerticalAlignment="Top" 
+                HorizontalAlignment="Stretch"
+                />
+            <Image 
+                Width="512" 
+                Height="256" 
+                Source="Z:\ProCon\Temp\Max\EPLAN\Data\Bilder\Procon X-Ray GmbH\Siemens\Industrial_Controls\3SU1BLM\product_picture_G_IC03_XX_07640I.jpg" 
+                Margin="16" 
+                VerticalAlignment="Top"
+                HorizontalAlignment="Stretch"
+                />
+        </StackPanel>
+    </Grid>
+</UserControl>
