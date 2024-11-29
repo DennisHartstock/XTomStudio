@@ -3,13 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Controls.Primitives;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
-using Microsoft.UI.Xaml.Navigation;
+using Microsoft.Maui.Controls;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
@@ -17,7 +11,7 @@ using Windows.Foundation.Collections;
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
 namespace XTomStudio.Controls;
-public sealed partial class NewProjectControl : UserControl
+public sealed partial class NewProjectControl : ContentView
 {
     public NewProjectControl()
     {

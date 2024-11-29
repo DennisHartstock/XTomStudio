@@ -1,13 +1,15 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System;
+using Microsoft.Maui.Controls;
 using XTomStudio.Contracts.Services;
-using INavigationService = XTomStudio.Contracts.Services.INavigationService;
 
 namespace XTomStudio.Controls.DataModels;
 
-public abstract class NavigationViewModelBase : ObservableRecipient
+public class NavigationViewModelBase : BindableObject
 {
+    private readonly INavigationService _navigationService;
+    private readonly INavigationViewService _navigationViewService;
     private bool _isBackEnabled;
-    private object? _selected;
+    private object _selected;
 
     public INavigationService NavigationService
     {
@@ -22,36 +24,44 @@ public abstract class NavigationViewModelBase : ObservableRecipient
     public bool IsBackEnabled
     {
         get => _isBackEnabled;
-        set => SetProperty(ref _isBackEnabled, value);
+        set
+        {
+            _isBackEnabled = value;
+            OnPropertyChanged();
+        }
     }
 
-    public object? Selected
+    public object Selected
     {
         get => _selected;
-        set => SetProperty(ref _selected, value);
+        set
+        {
+            _selected = value;
+            OnPropertyChanged();
+        }
     }
 
     public NavigationViewModelBase(INavigationService navigationService, INavigationViewService navigationViewService)
     {
-        NavigationService = navigationService;
-        //NavigationService.Navigated += OnNavigated;
-        NavigationViewService = navigationViewService;
+        _navigationService = navigationService;
+        _navigationService.Navigated += OnNavigated;
+        _navigationViewService = navigationViewService;
     }
 
-    //protected virtual void OnNavigated(object sender, NavigationEventArgs e)
-    //{
-    //    IsBackEnabled = NavigationService.CanGoBack;
+    protected virtual void OnNavigated(object sender, NavigationEventArgs e)
+    {
+        IsBackEnabled = _navigationService.CanGoBack;
 
-    //    if (e.SourcePageType == typeof(SettingsPage))
-    //    {
-    //        Selected = NavigationViewService.SettingsItem;
-    //        return;
-    //    }
+        if (e.SourcePageType == typeof(SettingsPage))
+        {
+            Selected = _navigationViewService.SettingsItem;
+            return;
+        }
 
-    //    var selectedItem = NavigationViewService.GetSelectedItem(e.SourcePageType);
-    //    if (selectedItem != null)
-    //    {
-    //        Selected = selectedItem;
-    //    }
-    //}
+        var selectedItem = _navigationViewService.GetSelectedItem(e.SourcePageType);
+        if (selectedItem != null)
+        {
+            Selected = selectedItem;
+        }
+    }
 }

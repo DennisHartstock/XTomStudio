@@ -1,4 +1,11 @@
-﻿using XTomStudio.Contracts.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Numerics;
+using XTomStudio.Contracts.Models;
+using XTomStudio.Models;
 using XTomStudio.Controls.ViewModels;
 
 namespace XTomStudio.Controls.DataModels;

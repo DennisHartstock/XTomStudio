@@ -1,8 +1,18 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
-using XTomStudio.Contracts.Services;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.Maui.Controls;
 using XTomStudio.Controls.DataModels;
+using XTomStudio.Models;
+using XTomStudio.Contracts.Services;
+using System.Windows.Input;
+using CommunityToolkit.Mvvm.Input;
+using XTomStudio.Services;
 
 namespace XTomStudio.Controls.ViewModels;
 
@@ -70,9 +80,9 @@ public class ProjectActionPaneModel : ObservableRecipient
         _SelectedIndex = 0;
         _SelectedItem = _ProjectSteps[_SelectedIndex];
 
-        NextStepCommand = new Command(NextStep);
-        PreviousStepCommand = new Command(PreviousStep);
-        StepClickedCommand = new Command<string>(StepClicked);
+        NextStepCommand = new RelayCommand(NextStep);
+        PreviousStepCommand = new RelayCommand(PreviousStep);
+        StepClickedCommand = new RelayCommand<string>(StepClicked);
     }
 
     public void InitializeNavigationService()
@@ -92,7 +102,7 @@ public class ProjectActionPaneModel : ObservableRecipient
             ProjectSteps[_SelectedIndex] = stepPrev;
 
             _SelectedIndex++;
-
+            
             var step = ProjectSteps[_SelectedIndex];
             step.IsEnabled = true;
             step.IsSelected = true;

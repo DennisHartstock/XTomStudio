@@ -1,30 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.UI.Xaml.Controls;
+using Microsoft.Maui.Controls;
 using XTomStudio.Core.Backbone;
 using XTomStudio.Core.Contracts.Communication;
 using XTomStudio.Core.Models;
 
-namespace XTomStudio.Controls;
-
-public class XTomBaseControl : Control
+namespace XTomStudio.Controls
 {
-    protected IRemoteClient RemoteClient { get; }
-
-    public XTomBaseControl()
+    public class XTomBaseControl : ContentView
     {
-        RemoteClient = App.GetService<IRemoteClient>();
-        RemoteClient.ConfigurationChanged += RemoteClient_ConfigurationChanged;
-        OnConfigurationChanged(RemoteClient.RemoteCtConfiguration);
-    }
+        protected IRemoteClient RemoteClient { get; }
 
-    private void RemoteClient_ConfigurationChanged(object? sender, Core.Primitives.ConfigurationChangedEventArgs e) => OnConfigurationChanged(e.RemoteCtConfiguration);
+        public XTomBaseControl()
+        {
+            RemoteClient = App.GetService<IRemoteClient>();
+            RemoteClient.ConfigurationChanged += RemoteClient_ConfigurationChanged;
+            OnConfigurationChanged(RemoteClient.RemoteCtConfiguration);
+        }
 
-    protected virtual void OnConfigurationChanged(RemoteCtConfiguration? configuration)
-    {
-        
+        private void RemoteClient_ConfigurationChanged(object? sender, Core.Primitives.ConfigurationChangedEventArgs e)
+            => OnConfigurationChanged(e.RemoteCtConfiguration);
+
+        protected virtual void OnConfigurationChanged(RemoteCtConfiguration? configuration)
+        {
+            // Implement your logic here
+        }
     }
 }

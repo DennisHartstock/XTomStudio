@@ -1,4 +1,6 @@
-﻿namespace XTomStudio.Contracts.Models;
+﻿using XTomStudio.Models;
+
+namespace XTomStudio.Contracts.Models;
 
 public interface IXTomProject
 {

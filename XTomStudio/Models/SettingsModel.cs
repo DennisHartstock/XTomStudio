@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XTom_Studio.Models;
+namespace XTomStudio.Models;
 public class SettingsModel
 {
 
@@ -25,5 +25,5 @@ public class Settings : INotifyPropertyChanged
         }
     }
 
-    
+    public event PropertyChangedEventHandler? PropertyChanged;
 }

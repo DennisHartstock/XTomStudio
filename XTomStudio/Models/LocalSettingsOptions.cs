@@ -1,4 +1,4 @@
-﻿namespace XTom_Studio.Models;
+﻿namespace XTomStudio.Models;
 
 public class LocalSettingsOptions
 {
