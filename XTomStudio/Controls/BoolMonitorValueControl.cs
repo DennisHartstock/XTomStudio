@@ -45,10 +45,10 @@ public sealed class BoolMonitorValueControl : MonitorValueDisplayControl<bool>
 				new SolidColorBrush(Colors.LightGray));
 
 
-	public BoolMonitorValueControl()
-    {
-        this.DefaultStyleKey = typeof(BoolMonitorValueControl);        
-    }
+	//public BoolMonitorValueControl()
+ //   {
+ //       this.DefaultStyleKey = typeof(BoolMonitorValueControl);        
+ //   }
 
     protected override void ConvertToValue(bool newValue)
     {

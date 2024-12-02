@@ -1,13 +1,10 @@
 // Copyright (c) Microsoft Corporation and Contributors.
 // Licensed under the MIT License.
 
-//using Windows.Foundation;
-//using Windows.Foundation.Collections;
-//using XTomStudio.Core.Models;
-//using XTomStudio.ViewModels;
-
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using XTomStudio.Core.Models;
+using XTomStudio.ViewModels;
 
 namespace XTomStudio.Dialogs;
 /// <summary>
@@ -23,18 +20,16 @@ public sealed partial class Connect2XTomServerDialog : ContentPage
     public Connect2XTomServerDialog()
     {
         InitializeComponent();
-        BindingContext = new Connect2XTomServerViewModel();
-
-
-
-        //ViewModel = App.GetService<Connect2XTomServerViewModel>();
-        //ViewModel.ConnectionEstablished += ViewModel_ConnectionEstablished;
-
-        //this.InitializeComponent();
+        ViewModel = App.GetService<Connect2XTomServerViewModel>();
+        BindingContext = ViewModel;
+        ViewModel.ConnectionEstablished += ViewModel_ConnectionEstablished;
     }
 
-    //private void ViewModel_ConnectionEstablished(object? sender, Contracts.Dialogs.ConnectionEstablishedEventargs e)
-    //{
-    //    this.Hide();
-    //}
+    private void ViewModel_ConnectionEstablished(object? sender, Contracts.Dialogs.ConnectionEstablishedEventargs e)
+    {
+        //this.Hide();
+
+        Application.Current.MainPage.Navigation.PopModalAsync();
+
+    }
 }

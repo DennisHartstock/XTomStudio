@@ -44,24 +44,24 @@ public class NavigationViewModelBase : BindableObject
     public NavigationViewModelBase(INavigationService navigationService, INavigationViewService navigationViewService)
     {
         _navigationService = navigationService;
-        _navigationService.Navigated += OnNavigated;
+        //_navigationService.Navigated += OnNavigated;
         _navigationViewService = navigationViewService;
     }
 
-    protected virtual void OnNavigated(object sender, NavigationEventArgs e)
-    {
-        IsBackEnabled = _navigationService.CanGoBack;
+    //protected virtual void OnNavigated(object sender, NavigationEventArgs e)
+    //{
+    //    IsBackEnabled = _navigationService.CanGoBack;
 
-        if (e.SourcePageType == typeof(SettingsPage))
-        {
-            Selected = _navigationViewService.SettingsItem;
-            return;
-        }
+    //    if (e.SourcePageType == typeof(SettingsPage))
+    //    {
+    //        Selected = _navigationViewService.SettingsItem;
+    //        return;
+    //    }
 
-        var selectedItem = _navigationViewService.GetSelectedItem(e.SourcePageType);
-        if (selectedItem != null)
-        {
-            Selected = selectedItem;
-        }
-    }
+    //    var selectedItem = _navigationViewService.GetSelectedItem(e.SourcePageType);
+    //    if (selectedItem != null)
+    //    {
+    //        Selected = selectedItem;
+    //    }
+    //}
 }

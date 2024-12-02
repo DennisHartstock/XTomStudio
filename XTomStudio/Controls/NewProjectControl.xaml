@@ -9,44 +9,44 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Border x:Name="BorderNewProject" CornerRadius="6" BorderBrush="#FF666666" BorderThickness="1">
-            <Border.Shadow>
-                <ThemeShadow />
-            </Border.Shadow>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="300"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Border CornerRadius="6" Canvas.ZIndex="10" Margin="30,20,400,20">
+        <Frame x:Name="BorderNewProject" CornerRadius="6" BorderColor="#FF666666" BorderWidth="1">
+            <Frame.Shadow>
+                <Shadow />
+            </Frame.Shadow>
+            <Grid RowDefinitions ="300, *">
+                <Frame CornerRadius="6" Canvas.ZIndex="10" Margin="30,20,400,20">
                     <Grid>
-                        <Image Source="ms-appx:///Assets/XTomNewProjectFront.tif" Stretch="UniformToFill"/>
-                        <TextBlock Margin="10" Text="What would you like to do?" Foreground="#FF1E73BE" Style="{ThemeResource PageTitleStyle}" />
+                        <Image Source="Images/xtom_new_project_front.tif" Stretch="AspectFill"/>
+                        <Label Margin="10" Text="What would you like to do?" TextColor="#FF1E73BE" Style="{StaticResource PageTitleStyle}" />
                     </Grid>                    
-                </Border>
+                </Frame>
                 
                 <!--<ParallaxView Grid.RowSpan="2" Source="{Binding ElementName=scrollviewer}" VerticalShift="500">
                     <Image Source="ms-appx:///Assets/Fotolia_72587205_XL.jpg" Stretch="UniformToFill"/>
                 </ParallaxView>-->
 
-                    <ScrollView x:Name="scrollviewer">
-                        <Grid>
-                            <Image Source="ms-appx:///Assets/Fotolia_72587205_XL.jpg" 
+                <ScrollView x:Name="scrollviewer">
+                    <Image Source="Resources\Images\fotolia_xl.jpg"
                                 Aspect="AspectFill"
-                                Height="300">
-                                <Image.Behaviors>
-                                    <local:ParallaxBehavior ParallaxView="{Binding Source={x:Reference scrollviewer}}" />
-                                </Image.Behaviors>
-                            </Image>
-                            <!-- Your other content goes here -->
-                        </Grid>
-                    </ScrollView>
+                                HeightRequest="300">
+                        <Image.Behaviors>
+                            <local:ParallaxBehavior ParallaxView="{Binding Source={x:Reference scrollviewer}}" />
+                        </Image.Behaviors>
+                    </Image>
+                </ScrollView>
 
                     <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,20">
                     <Button Content="OK" Background="{ThemeResource AppBarButtonBackgroundBrush}" VerticalAlignment="Center"/>
                     <Button Content="Cancel" Background="{ThemeResource AppBarButtonBackgroundBrush}" Margin="10,0,0,0" VerticalAlignment="Center"/>                    
                 </StackPanel>
-                <ScrollViewer x:Name="scrollviewer" Grid.Row="1" VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto" IsTabStop="True" IsVerticalScrollChainingEnabled="True">
+                <ScrollViewer 
+                    x:Name="scrollviewer" 
+                    Grid.Row="1" 
+                    VerticalScrollMode="Auto" 
+                    VerticalScrollBarVisibility="Auto" 
+                    IsTabStop="True" 
+                    IsVerticalScrollChainingEnabled="True">
+                    
                     <StackPanel>
                         <TextBlock Margin="15,20,0,0"  Text="CT Projects" Style="{ThemeResource SubtitleTextBlockStyle}" />
                         <GridView Margin="15,5,0,0">
@@ -105,6 +105,6 @@
                 
             </Grid>
             
-        </Border>
+        </Frame>
     </Grid>
 </UserControl>

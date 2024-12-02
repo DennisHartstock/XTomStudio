@@ -17,7 +17,7 @@ public sealed partial class ProjectActionPaneControl : ContentView
         InitializeComponent();
         ViewModel = App.GetService<ProjectActionPaneModel>();
 
-        ViewModel.NavigationService.Frame = NavigationFrame;
+        //ViewModel.NavigationService.Frame = NavigationFrame;
         ViewModel.InitializeNavigationService();
         //ViewModel.NavigationViewService.Initialize(NavigationViewControl);
     }

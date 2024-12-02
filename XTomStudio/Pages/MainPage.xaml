@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pageModels="clr-namespace:XTomStudio.PageModels"             
              xmlns:models="clr-namespace:XTomStudio.Models"
-             xmlns:controls="clr-namespace:XTomStudio.Pages.Controls"
+             xmlns:xcontrols="using:XTomStudio.Controls"
+             xmlns:helpers="clr-namespace:XTomStudio.Helpers"
              xmlns:pullToRefresh="clr-namespace:Syncfusion.Maui.Toolkit.PullToRefresh;assembly=Syncfusion.Maui.Toolkit"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="XTomStudio.Pages.MainPage"
@@ -49,98 +50,209 @@
             Grid.RowSpan="2" 
             Margin="15" 
             ZIndex="99">
-            <!--<xcontrols:NewProjectControl/>-->
+            <xcontrols:NewProjectControl/>
         </Grid>
 
         <Grid ColumnDefinitions="180, 1*, 1*, 1*, 1*, 180" x:Name="MainGrid" Height="180" Grid.Row="0" Grid.ColumnSpan="2">
-            <!--<xcontrols:TileControl x:Name="XRayOnTile" Title="XRayOn"/>-->
+            <xcontrols:TileControl x:Name="XRayOnTile" Title="XRayOn"/>
 
-            <Rectangle Grid.Column="1" Fill="{Binding DeviceStateSourceCtrl.LedColor, Mode=OneWay}" Width="5" Margin="12,0,0,25" HorizontalOptions="Start" Height="105"/>
-            
-        <!--<xcontrols:TileControl x:Name="GeneratorTile" Grid.Column="1"  Title="GENERATOR">
-            <Grid Margin="5,20,5,20">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="150"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="150"/>
-                </Grid.ColumnDefinitions>
-                <xcontrols:DeviceStateMonitorValueControl x:Name="DeviceStateSourceCtrl" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Margin="4,0,0,0" MonitorValue="XraySource.DeviceStateMonitor"/>
-                <xcontrols:DoubleMonitorValueControl x:Name="DoubleMonVoltage" Grid.Row="0" Grid.Column="1" Margin="4,0,0,0" TextWidth="70" MonitorValue="XraySource.VoltageMonitor" Text="Voltage" Unit="kV" StringFormat="N1"/>
-                <xcontrols:DoubleMonitorValueControl x:Name="DoubleMonCurrent" Grid.Row="1" Grid.Column="1" Margin="4,0,0,0" TextWidth="70" MonitorValue="XraySource.CurrentMonitor" Text="Current" Unit="µA" StringFormat="N1"/>
-                <xcontrols:DoubleMonitorValueControl Grid.Row="2" Grid.Column="1" Margin="4,0,0,0" TextWidth="70" Text="Power" Unit="W" StringFormat="N1" Value="{x:Bind helpers:MonitorValueConverters.CalcPower(DoubleMonVoltage.RawValue, DoubleMonCurrent.RawValue, 'N1'), Mode=OneWay}" />
-                <xcontrols:BoolMonitorValueControl Grid.Row="0" Grid.Column="3" Margin="4,0,0,0" TextWidth="110" MonitorValue="XraySource.InterlockClosedMonitor" Text="Interlock">
-                    <xcontrols:BoolMonitorValueControl.TrueColor>
-                            <RadialGradientBrush Opacity="1" Center="0.6,0.35" GradientOrigin="0.6,0.35" RadiusX="0.67" RadiusY="0.67">
+            <!--<Rectangle Grid.Column="1" Fill="{Binding DeviceStateSourceCtrl.LedColor, Mode=OneWay}" Width="5" Margin="12,0,0,25" HorizontalOptions="Start" Height="105"/>-->
+
+            <xcontrols:TileControl x:Name="GeneratorTile" Grid.Column="1"  Title="GENERATOR">
+                <Grid 
+                Margin="5,20,5,20"
+                RowDefinitions="*, *, *" 
+                ColumnDefinitions="20, 150, 40, 150">
+
+                    <xcontrols:DeviceStateMonitorValueControl 
+                    x:Name="DeviceStateSourceCtrl" 
+                    Grid.Row="0" 
+                    Grid.RowSpan="3" 
+                    Grid.Column="0" 
+                    Margin="4,0,0,0" 
+                    MonitorValue="XraySource.DeviceStateMonitor"/>
+
+                    <xcontrols:DoubleMonitorValueControl 
+                    x:Name="DoubleMonVoltage" 
+                    Grid.Row="0" 
+                    Grid.Column="1" 
+                    Margin="4,0,0,0" 
+                    TextWidth="70" 
+                    MonitorValue="XraySource.VoltageMonitor" 
+                    Text="Voltage" 
+                    Unit="kV"
+                    StringFormat="N1"/>
+
+                    <xcontrols:DoubleMonitorValueControl 
+                    x:Name="DoubleMonCurrent" 
+                    Grid.Row="1" 
+                    Grid.Column="1" 
+                    Margin="4,0,0,0" 
+                    TextWidth="70" 
+                    MonitorValue="XraySource.CurrentMonitor" 
+                    Text="Current" 
+                    Unit="µA" 
+                    StringFormat="N1"/>
+
+                    <xcontrols:DoubleMonitorValueControl 
+                    Grid.Row="2" 
+                    Grid.Column="1" 
+                    Margin="4,0,0,0" 
+                    TextWidth="70" 
+                    Text="Power" 
+                    Unit="W" 
+                    StringFormat="N1" 
+                    Value="{Binding Source={x:Reference helpers:MonitorValueConverters}, 
+                        Path=CalcPower(DoubleMonVoltage.RawValue, 
+                        DoubleMonCurrent.RawValue, 'N1'), Mode=OneWay}" />
+
+                    <xcontrols:BoolMonitorValueControl 
+                        Grid.Row="0" 
+                        Grid.Column="3" 
+                        Margin="4,0,0,0" 
+                        TextWidth="110" 
+                        MonitorValue="XraySource.InterlockClosedMonitor" Text="Interlock">
+
+                        <xcontrols:BoolMonitorValueControl.TrueColor>
+                            <RadialGradientBrush 
+                                Opacity="1" 
+                                Center="0.6,0.35"
+                                Radius="0.67">
+
                                 <GradientStop Color="Green" Offset="1"/>
                                 <GradientStop Color="#FF78FF78" Offset="0"/>
                             </RadialGradientBrush>
+
                         </xcontrols:BoolMonitorValueControl.TrueColor>
                         <xcontrols:BoolMonitorValueControl.FalseColor>
-                            <RadialGradientBrush Opacity="1" Center="0.6,0.35" GradientOrigin="0.6,0.35" RadiusX="0.67" RadiusY="0.67">
+                            <RadialGradientBrush 
+                                Opacity="1" 
+                                Center="0.6,0.35"
+                                Radius="0.67">
+
                                 <GradientStop Color="Red" Offset="1"/>
                                 <GradientStop Color="#FFFB7777" Offset="0"/>
                             </RadialGradientBrush>
                         </xcontrols:BoolMonitorValueControl.FalseColor>
-                </xcontrols:BoolMonitorValueControl>
-                <xcontrols:WarmupStateMonitorValueControl Grid.Row="1" Grid.Column="3" Margin="4,0,0,0" TextWidth="110" MonitorValue="XraySource.WarmUpMonitor" Text="Warmup"/>
-            </Grid>
-        </xcontrols:TileControl>-->
-            
-            <Rectangle Grid.Column="2" Fill="{Binding DeviceStateDetectorCtrl.LedColor, Mode=OneWay}" Width="5" Margin="12,0,0,25" HorizontalOptions="Start" Height="105"/>
-            
-        <!--<xcontrols:TileControl x:Name="DetectorTile" Grid.Column="2" Title="DETECTOR">
-            <Grid Margin="5,20,5,20">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="180"/>
-                    <ColumnDefinition Width="30"/>
-                    <ColumnDefinition Width="150"/>
-                </Grid.ColumnDefinitions>
-                <xcontrols:DeviceStateMonitorValueControl x:Name="DeviceStateDetectorCtrl" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Margin="4,0,0,0" MonitorValue="XrayDetector.DeviceStateMonitor"/>
-                <xcontrols:DoubleMonitorValueControl Grid.Row="0" Grid.Column="1" Margin="4,0,0,0" TextWidth="105" MonitorValue="XrayDetector.ExposureTimeMonitor" Text="Exposure Time" Unit="s" StringFormat="N3"/>
-                <xcontrols:IntMonitorValueControl Grid.Row="1" Grid.Column="1" Margin="4,0,0,0" TextWidth="130" MonitorValue="XrayDetector.NAveragesMonitor" Text="Averages" />
-                <xcontrols:DoubleMonitorValueControl Grid.Row="2" Grid.Column="1" Margin="4,0,0,0" TextWidth="105" MonitorValue="XrayDetector.PixelSizeMonitor" Text="Pixel Size" Unit="µm" StringFormat="N1"/>
-            </Grid>
-        </xcontrols:TileControl>-->
-            
-        <!--<xcontrols:TileControl x:Name="ManipulatorTile" Grid.Column="3"  Title="MANIPULATOR">
-            <Border Margin="5,20,5,20">
-                <xcontrols:AxesDisplayControl/>
+                    </xcontrols:BoolMonitorValueControl>
 
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="20"/>
-                            <ColumnDefinition Width="180"/>
-                            <ColumnDefinition Width="30"/>
-                            <ColumnDefinition Width="150"/>
-                        </Grid.ColumnDefinitions>
-                        <xcontrols:AxesDisplayControl x:Name="AxesDisplayControl" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Margin="4,0,0,0"/>
-                        <xcontrols:DoubleMonitorValueControl Grid.Row="0" Grid.Column="1" Margin="4,0,0,0" TextWidth="105" MonitorValue="XrayDetector.ExposureTimeMonitor" Text="Exposure Time" Unit="s" StringFormat="N3"/>
-                        <xcontrols:IntMonitorValueControl Grid.Row="1" Grid.Column="1" Margin="4,0,0,0" TextWidth="130" MonitorValue="XrayDetector.NAveragesMonitor" Text="Averages" />
-                        <xcontrols:DoubleMonitorValueControl Grid.Row="2" Grid.Column="1" Margin="4,0,0,0" TextWidth="105" MonitorValue="XrayDetector.PixelSizeMonitor" Text="Pixel Size" Unit="µm" StringFormat="N1"/>
+                    <xcontrols:WarmupStateMonitorValueControl 
+                        Grid.Row="1" 
+                        Grid.Column="3" 
+                        Margin="4,0,0,0" 
+                        TextWidth="110" 
+                        MonitorValue="XraySource.WarmUpMonitor" 
+                        Text="Warmup"/>
+                </Grid>
+            </xcontrols:TileControl>
+
+            <!--<Rectangle Grid.Column="2" Fill="{Binding DeviceStateDetectorCtrl.LedColor, Mode=OneWay}" Width="5" Margin="12,0,0,25" HorizontalOptions="Start" Height="105"/>-->
+
+            <xcontrols:TileControl 
+                x:Name="DetectorTile" 
+                Grid.Column="2" 
+                Title="DETECTOR">
+                <Grid Margin="5,20,5,20"
+                      RowDefinitions="*, *, *"
+                      ColumnDefinitions="20, 180, 30, 150">
+
+                    <xcontrols:DeviceStateMonitorValueControl 
+                        x:Name="DeviceStateDetectorCtrl" 
+                        Grid.Row="0" 
+                        Grid.RowSpan="3" 
+                        Grid.Column="0" 
+                        Margin="4,0,0,0" 
+                        MonitorValue="XrayDetector.DeviceStateMonitor"/>
+
+                    <xcontrols:DoubleMonitorValueControl 
+                        Grid.Row="0" 
+                        Grid.Column="1" 
+                        Margin="4,0,0,0" 
+                        TextWidth="105" 
+                        MonitorValue="XrayDetector.ExposureTimeMonitor" 
+                        Text="Exposure Time" 
+                        Unit="s" 
+                        StringFormat="N3"/>
+
+                    <xcontrols:IntMonitorValueControl 
+                        Grid.Row="1" 
+                        Grid.Column="1" 
+                        Margin="4,0,0,0" 
+                        TextWidth="130" 
+                        MonitorValue="XrayDetector.NAveragesMonitor" 
+                        Text="Averages"/>
+
+                    <xcontrols:DoubleMonitorValueControl 
+                        Grid.Row="2" 
+                        Grid.Column="1" 
+                        Margin="4,0,0,0" 
+                        TextWidth="105" 
+                        MonitorValue="XrayDetector.PixelSizeMonitor" 
+                        Text="Pixel Size" 
+                        Unit="µm" 
+                        StringFormat="N1"/>
+                </Grid>
+            </xcontrols:TileControl>
+
+            <xcontrols:TileControl 
+                x:Name="ManipulatorTile" 
+                Grid.Column="3"  
+                Title="MANIPULATOR">
+
+                <Border Margin="5,20,5,20">
+                    <xcontrols:AxesDisplayControl/>
+
+                    <Grid
+                        RowDefinitions="*, *, *"
+                        ColumnDefinitions="20, 180, 30, 150">
+
+                        <xcontrols:AxesDisplayControl 
+                            x:Name="AxesDisplayControl" 
+                            Grid.Row="0" 
+                            Grid.RowSpan="3" 
+                            Grid.Column="0" 
+                            Margin="4,0,0,0"/>
+                        
+                        <xcontrols:DoubleMonitorValueControl 
+                            Grid.Row="0" 
+                            Grid.Column="1" 
+                            Margin="4,0,0,0" 
+                            TextWidth="105" 
+                            MonitorValue="XrayDetector.ExposureTimeMonitor" 
+                            Text="Exposure Time" 
+                            Unit="s" 
+                            StringFormat="N3"/>
+                        
+                        <xcontrols:IntMonitorValueControl 
+                            Grid.Row="1" 
+                            Grid.Column="1" 
+                            Margin="4,0,0,0" 
+                            TextWidth="130" 
+                            MonitorValue="XrayDetector.NAveragesMonitor" 
+                            Text="Averages"/>
+                        
+                        <xcontrols:DoubleMonitorValueControl 
+                            Grid.Row="2" 
+                            Grid.Column="1" 
+                            Margin="4,0,0,0" 
+                            TextWidth="105" 
+                            MonitorValue="XrayDetector.PixelSizeMonitor" 
+                            Text="Pixel Size" 
+                            Unit="µm" 
+                            StringFormat="N1"/>
                     </Grid>
                 </Border>
-        </xcontrols:TileControl>-->
+            </xcontrols:TileControl>
 
-            <!--<xcontrols:TileControl x:Name="SystemTile" Grid.Column="4"  Title="SYSTEM"/>-->
+            <xcontrols:TileControl 
+                x:Name="SystemTile" 
+                Grid.Column="4"  
+                Title="SYSTEM"/>
 
-            <!--<xcontrols:TileControl x:Name="StopTile" Grid.Column="5"  Title="STOP!"/>-->
+            <xcontrols:TileControl 
+                x:Name="StopTile" 
+                Grid.Column="5"  
+                Title="STOP!"/>
         </Grid>
     </Grid>
 

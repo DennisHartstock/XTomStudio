@@ -14,10 +14,10 @@ public sealed class TileControl : ContentView
     public static readonly BindableProperty TitleProperty =
         BindableProperty.Create(nameof(Title), typeof(string), typeof(TileControl), null);
 
-    public TileControl()
-    {
-        this.DefaultStyleKey = typeof(TileControl);
-    }
+    //public TileControl()
+    //{
+    //    this.DefaultStyleKey = typeof(TileControl);
+    //}
 
     protected override void OnApplyTemplate()
     {

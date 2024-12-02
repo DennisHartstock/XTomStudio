@@ -3,12 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Microsoft.UI.Xaml;
-using Microsoft.UI.Xaml.Controls;
-using Microsoft.UI.Xaml.Data;
-using Microsoft.UI.Xaml.Documents;
-using Microsoft.UI.Xaml.Input;
-using Microsoft.UI.Xaml.Media;
+using Microsoft.Maui.Controls;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -22,12 +17,13 @@ public sealed class DoubleMonitorValueControl : MonitorValueDisplayControl<doubl
         set => SetValue(StringFormatProperty, value);
     }
 
-    public static readonly DependencyProperty StringFormatProperty =
-        DependencyProperty.Register("StringFormat", typeof(string), typeof(DoubleMonitorValueControl), new PropertyMetadata(null, (s, e) =>
-        {
-            var ctrl = s as DoubleMonitorValueControl;
-            ctrl?.OnStringFormatChanged();
-        }));
+    public static readonly BindableProperty StringFormatProperty =
+        BindableProperty.Create(
+            nameof(StringFormat), 
+            typeof(string), 
+            typeof(DoubleMonitorValueControl),
+            null
+            /*OnStringFormatChanged*/);
 
 
     public int PadLeft
@@ -36,22 +32,27 @@ public sealed class DoubleMonitorValueControl : MonitorValueDisplayControl<doubl
         set => SetValue(PadLeftProperty, value);
     }
 
-    public static readonly DependencyProperty PadLeftProperty =
-        DependencyProperty.Register("PadLeft", typeof(int), typeof(DoubleMonitorValueControl), new PropertyMetadata(0));
+    public static readonly BindableProperty PadLeftProperty =
+        BindableProperty.Create(nameof(PadLeft), typeof(int), typeof(DoubleMonitorValueControl), 0);
 
 
-    public DoubleMonitorValueControl()
+    //public DoubleMonitorValueControl()
+    //{
+    //    this.DefaultStyleKey = typeof(DoubleMonitorValueControl);
+    //}
+
+    //protected override void ConvertToValue(double newValue)
+    //{
+    //    Value = newValue.ToString(StringFormat, CultureInfo.InvariantCulture).PadLeft(PadLeft);
+    //}
+
+    private static void OnStringFormatChanged(BindableObject bindable, object oldValue, object newValue)
     {
-        this.DefaultStyleKey = typeof(DoubleMonitorValueControl);
-    }
-
-    protected override void ConvertToValue(double newValue)
-    {
-        Value = newValue.ToString(StringFormat, CultureInfo.InvariantCulture).PadLeft(PadLeft);
+        var ctrl = bindable as DoubleMonitorValueControl;
+        ctrl?.OnStringFormatChanged();
     }
 
     private void OnStringFormatChanged()
     {
-        ConvertToValue(RawValue);
     }
 }
