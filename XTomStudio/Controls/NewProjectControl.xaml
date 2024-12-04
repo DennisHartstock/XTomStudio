@@ -1,25 +1,26 @@
-﻿<UserControl
+﻿<ContentView
     x:Class="XTomStudio.Controls.NewProjectControl"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:xcontrols="using:XTomStudio.Controls"
+    xmlns:xcontrols="clr-namespace:XTomStudio.Controls"
     xmlns:local="clr-namespace:XTomStudio.Helpers"
     mc:Ignorable="d">
 
     <Grid>
-        <Frame x:Name="BorderNewProject" CornerRadius="6" BorderColor="#FF666666" BorderWidth="1">
-            <Frame.Shadow>
+        <Border x:Name="BorderNewProject" StrokeShape="6" Stroke="#FF666666" StrokeThickness="1">
+            <Border.Shadow>
                 <Shadow />
-            </Frame.Shadow>
+            </Border.Shadow>
+            
             <Grid RowDefinitions ="300, *">
-                <Frame CornerRadius="6" Canvas.ZIndex="10" Margin="30,20,400,20">
+                <Border StrokeShape="6" Margin="30,20,400,20">
                     <Grid>
-                        <Image Source="Images/xtom_new_project_front.tif" Stretch="AspectFill"/>
-                        <Label Margin="10" Text="What would you like to do?" TextColor="#FF1E73BE" Style="{StaticResource PageTitleStyle}" />
+                        <Image Source="Images/xtom_new_project_front.tif" Aspect="AspectFill"/>
+                        <Label Margin="10" Text="What would you like to do?" TextColor="#FF1E73BE" />
                     </Grid>                    
-                </Frame>
+                </Border>
                 
                 <!--<ParallaxView Grid.RowSpan="2" Source="{Binding ElementName=scrollviewer}" VerticalShift="500">
                     <Image Source="ms-appx:///Assets/Fotolia_72587205_XL.jpg" Stretch="UniformToFill"/>
@@ -29,27 +30,25 @@
                     <Image Source="Resources\Images\fotolia_xl.jpg"
                                 Aspect="AspectFill"
                                 HeightRequest="300">
-                        <Image.Behaviors>
+                        <!--<Image.Behaviors>
                             <local:ParallaxBehavior ParallaxView="{Binding Source={x:Reference scrollviewer}}" />
-                        </Image.Behaviors>
+                        </Image.Behaviors>-->
                     </Image>
                 </ScrollView>
 
-                    <StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,20">
-                    <Button Content="OK" Background="{ThemeResource AppBarButtonBackgroundBrush}" VerticalAlignment="Center"/>
-                    <Button Content="Cancel" Background="{ThemeResource AppBarButtonBackgroundBrush}" Margin="10,0,0,0" VerticalAlignment="Center"/>                    
-                </StackPanel>
-                <ScrollViewer 
-                    x:Name="scrollviewer" 
-                    Grid.Row="1" 
-                    VerticalScrollMode="Auto" 
-                    VerticalScrollBarVisibility="Auto" 
-                    IsTabStop="True" 
-                    IsVerticalScrollChainingEnabled="True">
+                    <HorizontalStackLayout Grid.Row="1" VerticalOptions="End" HorizontalOptions="End" Margin="0,0,20,20">
+                    <Button Text="OK" BackgroundColor="Aquamarine" VerticalOptions="Center"/>
+                    <Button Text="Cancel" BackgroundColor="Aquamarine" Margin="10,0,0,0" VerticalOptions="Center"/>                    
+                </HorizontalStackLayout>
+                
+                <ScrollView
+                    Grid.Row="1">
                     
-                    <StackPanel>
-                        <TextBlock Margin="15,20,0,0"  Text="CT Projects" Style="{ThemeResource SubtitleTextBlockStyle}" />
-                        <GridView Margin="15,5,0,0">
+                    <HorizontalStackLayout>
+                        <Label Margin="15,20,0,0"  Text="CT Projects" />
+                        
+                        
+                        <!--<GridView Margin="15,5,0,0">
                             <xcontrols:TileControl Title="CT SCAN" Width="160" Height="160">
 
                             </xcontrols:TileControl>
@@ -59,9 +58,13 @@
                             <xcontrols:TileControl Title="CT MEASUREMENT" Width="160" Height="160">
 
                             </xcontrols:TileControl>
-                        </GridView>
-                        <TextBlock Margin="15,20,0,0"  Text="Last Projects" Style="{ThemeResource SubtitleTextBlockStyle}" />
-                        <GridView Margin="10,5,0,0">
+                        </GridView>-->
+                        
+                        
+                        <Label Margin="15,20,0,0"  Text="Last Projects" />
+                        
+                        
+                        <!--<GridView Margin="10,5,0,0">
                             <xcontrols:TileControl Title="TestScan1" Width="160" Height="160">
 
                             </xcontrols:TileControl>
@@ -74,9 +77,13 @@
                             <xcontrols:TileControl Title="TestScan4" Width="160" Height="160">
 
                             </xcontrols:TileControl>
-                        </GridView>
-                        <TextBlock Margin="15,20,0,0"  Text="Favorites" Style="{ThemeResource SubtitleTextBlockStyle}" />
-                        <GridView Margin="10,5,0,0">
+                        </GridView>-->
+                        
+                        
+                        <Label Margin="15,20,0,0"  Text="Favorites" />
+                        
+                        
+                        <!--<GridView Margin="10,5,0,0">
                             <xcontrols:TileControl Title="Favorite 1" Width="160" Height="160">
 
                             </xcontrols:TileControl>
@@ -86,25 +93,33 @@
                             <xcontrols:TileControl Title="Favorite 3" Width="160" Height="160">
 
                             </xcontrols:TileControl>
-                        </GridView>
-                        <TextBlock Margin="15,20,0,0"  Text="Specials" Style="{ThemeResource SubtitleTextBlockStyle}" />
-                        <GridView Margin="10,5,0,0">
+                        </GridView>-->
+                        
+                        
+                        <Label Margin="15,20,0,0"  Text="Specials" />
+                        
+                        
+                        <!--<GridView Margin="10,5,0,0">
                             <xcontrols:TileControl Title="Just Control" Width="160" Height="160">
 
                             </xcontrols:TileControl>
-                        </GridView>
-                        <TextBlock Margin="15,20,0,0"  Text="Service" Style="{ThemeResource SubtitleTextBlockStyle}" />
-                        <GridView Margin="10,5,0,0">
+                        </GridView>-->
+                        
+                        
+                        <Label Margin="15,20,0,0"  Text="Service" />
+                        
+                        
+                        <!--<GridView Margin="10,5,0,0">
                             <xcontrols:TileControl Title="Ball Calibration" Width="160" Height="160">
 
                             </xcontrols:TileControl>
-                        </GridView>
+                        </GridView>-->
 
-                    </StackPanel>
-                </ScrollViewer>
+                    </HorizontalStackLayout>
+                </ScrollView>
                 
             </Grid>
             
-        </Frame>
+        </Border>
     </Grid>
-</UserControl>
+</ContentView>

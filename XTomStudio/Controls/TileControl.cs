@@ -28,22 +28,22 @@ public sealed class TileControl : ContentView
     protected override void OnHandlerChanged()
     {
         base.OnHandlerChanged();
-        if (Handler != null)
-        {
-            // Attach event handlers for pointer events
-            this.AddHandler(PointerEnteredEvent, OnPointerEntered, true);
-            this.AddHandler(PointerExitedEvent, OnPointerExited, true);
-            this.AddHandler(PointerPressedEvent, OnPointerPressed, true);
-            this.AddHandler(PointerReleasedEvent, OnPointerReleased, true);
-        }
-        else
-        {
-            // Detach event handlers for pointer events
-            this.RemoveHandler(PointerEnteredEvent, OnPointerEntered);
-            this.RemoveHandler(PointerExitedEvent, OnPointerExited);
-            this.RemoveHandler(PointerPressedEvent, OnPointerPressed);
-            this.RemoveHandler(PointerReleasedEvent, OnPointerReleased);
-        }
+        //if (Handler != null)
+        //{
+        //    // Attach event handlers for pointer events
+        //    this.AddHandler(PointerEnteredEvent, OnPointerEntered, true);
+        //    this.AddHandler(PointerExitedEvent, OnPointerExited, true);
+        //    this.AddHandler(PointerPressedEvent, OnPointerPressed, true);
+        //    this.AddHandler(PointerReleasedEvent, OnPointerReleased, true);
+        //}
+        //else
+        //{
+        //    // Detach event handlers for pointer events
+        //    this.RemoveHandler(PointerEnteredEvent, OnPointerEntered);
+        //    this.RemoveHandler(PointerExitedEvent, OnPointerExited);
+        //    this.RemoveHandler(PointerPressedEvent, OnPointerPressed);
+        //    this.RemoveHandler(PointerReleasedEvent, OnPointerReleased);
+        //}
     }
 
     private void OnPointerEntered(object sender, PointerEventArgs e)

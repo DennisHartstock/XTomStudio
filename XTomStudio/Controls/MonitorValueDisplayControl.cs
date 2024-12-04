@@ -85,7 +85,7 @@ public class MonitorValueDisplayControl<T> : XTomBaseControl
 
     #endregion
 
-    public MonitorValueDisplayControl() => _dispatcher = Dispatcher.GetForCurrentThread();
+    //public MonitorValueDisplayControl() => _dispatcher = Dispatcher.GetForCurrentThread();
 
     protected override void OnConfigurationChanged(RemoteCtConfiguration? configuration)
     {

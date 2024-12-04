@@ -30,7 +30,6 @@
     </ContentPage.Resources>
 
 
-
     <Grid 
         ColumnDefinitions="2*, 1*" 
         RowDefinitions="Auto, *" 
@@ -102,9 +101,7 @@
                     Text="Power" 
                     Unit="W" 
                     StringFormat="N1" 
-                    Value="{Binding Source={x:Reference helpers:MonitorValueConverters}, 
-                        Path=CalcPower(DoubleMonVoltage.RawValue, 
-                        DoubleMonCurrent.RawValue, 'N1'), Mode=OneWay}" />
+                     />
 
                     <xcontrols:BoolMonitorValueControl 
                         Grid.Row="0" 
@@ -114,8 +111,7 @@
                         MonitorValue="XraySource.InterlockClosedMonitor" Text="Interlock">
 
                         <xcontrols:BoolMonitorValueControl.TrueColor>
-                            <RadialGradientBrush 
-                                Opacity="1" 
+                            <RadialGradientBrush
                                 Center="0.6,0.35"
                                 Radius="0.67">
 
@@ -125,8 +121,7 @@
 
                         </xcontrols:BoolMonitorValueControl.TrueColor>
                         <xcontrols:BoolMonitorValueControl.FalseColor>
-                            <RadialGradientBrush 
-                                Opacity="1" 
+                            <RadialGradientBrush
                                 Center="0.6,0.35"
                                 Radius="0.67">
 
@@ -199,19 +194,19 @@
                 Grid.Column="3"  
                 Title="MANIPULATOR">
 
-                <Border Margin="5,20,5,20">
-                    <xcontrols:AxesDisplayControl/>
+                <!--<Border Margin="5,20,5,20">
+                    <xcontrols:AxesDisplayControl/>-->
 
                     <Grid
                         RowDefinitions="*, *, *"
                         ColumnDefinitions="20, 180, 30, 150">
 
-                        <xcontrols:AxesDisplayControl 
+                        <!--<xcontrols:AxesDisplayControl 
                             x:Name="AxesDisplayControl" 
                             Grid.Row="0" 
                             Grid.RowSpan="3" 
                             Grid.Column="0" 
-                            Margin="4,0,0,0"/>
+                            Margin="4,0,0,0"/>-->
                         
                         <xcontrols:DoubleMonitorValueControl 
                             Grid.Row="0" 
@@ -241,7 +236,7 @@
                             Unit="µm" 
                             StringFormat="N1"/>
                     </Grid>
-                </Border>
+                <!--</Border>-->
             </xcontrols:TileControl>
 
             <xcontrols:TileControl 
