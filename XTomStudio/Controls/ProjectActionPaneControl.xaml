@@ -21,7 +21,7 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="..\Themes\Generic.xaml"/>
+                <!--<ResourceDictionary Source="..\Themes\Generic.xaml"/>-->
             </ResourceDictionary.MergedDictionaries>
             <converters:BoolToObjectConverter x:Key="BoolToOpacityConverter" FalseObject="0" TrueObject="1" />
             

@@ -10,10 +10,10 @@ namespace XTomStudio.Controls;
 /// <summary>
 /// An empty page that can be used on its own or navigated to within a Frame.
 /// </summary>
-public sealed partial class ProjectStepSetupSamplePage : Page
+public sealed partial class ProjectStepSetupSample : ContentView
 {
-    public ProjectStepSetupSamplePage()
+    public ProjectStepSetupSample()
     {
-        this.InitializeComponent();
+        InitializeComponent();
     }
 }

@@ -17,15 +17,15 @@ namespace XTomStudio.ViewModels;
 public class SettingsViewModel : ObservableRecipient
 {
     private readonly IThemeSelectorService _ThemeSelectorService;
-    private ElementTheme _ElementTheme;
+    //private ElementTheme _ElementTheme;
     private string _VersionDescription;
     private string _XTomServerConnectionString = "https://localhost:7199";
 
-    public ElementTheme ElementTheme
-    {
-        get => _ElementTheme;
-        set => SetProperty(ref _ElementTheme, value);
-    }
+    //public ElementTheme ElementTheme
+    //{
+    //    get => _ElementTheme;
+    //    set => SetProperty(ref _ElementTheme, value);
+    //}
 
     public string VersionDescription
     {
@@ -56,21 +56,21 @@ public class SettingsViewModel : ObservableRecipient
     public SettingsViewModel(IThemeSelectorService themeSelectorService, ILocalSettingsService settingsService)
     {
         _ThemeSelectorService = themeSelectorService;
-        _ElementTheme = _ThemeSelectorService.Theme;
-        _VersionDescription = GetVersionDescription();
+        //_ElementTheme = _ThemeSelectorService.Theme;
+        //_VersionDescription = GetVersionDescription();
 
-        SwitchThemeCommand = new RelayCommand<ElementTheme>(
-            async (param) =>
-            {
-                if (ElementTheme != param)
-                {
-                    ElementTheme = param;
-                    await _ThemeSelectorService.SetThemeAsync(param);
-                }
-            });
+        //SwitchThemeCommand = new RelayCommand<ElementTheme>(
+        //    async (param) =>
+        //    {
+        //        if (ElementTheme != param)
+        //        {
+        //            ElementTheme = param;
+        //            await _ThemeSelectorService.SetThemeAsync(param);
+        //        }
+        //    });
     }
 
-    private static string GetVersionDescription()
+    private void GetVersionDescription()
     {
         Version version;
 
@@ -85,6 +85,6 @@ public class SettingsViewModel : ObservableRecipient
             version = Assembly.GetExecutingAssembly().GetName().Version!;
         }
 
-        return $"{"AppDisplayName".GetLocalized()} - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+        //return $"{"AppDisplayName".GetLocalized()} - {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
     }
 }

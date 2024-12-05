@@ -9,13 +9,13 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Border x:Name="BorderNewProject" StrokeShape="6" Stroke="#FF666666" StrokeThickness="1">
+        <Border x:Name="BorderNewProject" Stroke="#FF666666" StrokeThickness="1">
             <Border.Shadow>
                 <Shadow />
             </Border.Shadow>
             
             <Grid RowDefinitions ="300, *">
-                <Border StrokeShape="6" Margin="30,20,400,20">
+                <Border Margin="30,20,400,20">
                     <Grid>
                         <Image Source="Images/xtom_new_project_front.tif" Aspect="AspectFill"/>
                         <Label Margin="10" Text="What would you like to do?" TextColor="#FF1E73BE" />
