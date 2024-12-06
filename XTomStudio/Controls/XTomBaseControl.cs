@@ -12,9 +12,9 @@ namespace XTomStudio.Controls
 
         public XTomBaseControl()
         {
-            RemoteClient = App.GetService<IRemoteClient>();
-            RemoteClient.ConfigurationChanged += RemoteClient_ConfigurationChanged;
-            OnConfigurationChanged(RemoteClient.RemoteCtConfiguration);
+            //RemoteClient = App.GetService<IRemoteClient>();
+            //RemoteClient.ConfigurationChanged += RemoteClient_ConfigurationChanged;
+            //OnConfigurationChanged(RemoteClient.RemoteCtConfiguration);
         }
 
         private void RemoteClient_ConfigurationChanged(object? sender, Core.Primitives.ConfigurationChangedEventArgs e)

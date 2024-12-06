@@ -1,10 +1,8 @@
-﻿using Windows.UI.WebUI;
-
-namespace XTomStudio.Contracts.Services;
+﻿namespace XTomStudio.Contracts.Services;
 
 public interface INavigationService
 {
-    event NavigatedEventHandler Navigated;
+    //event NavigatedEventHandler Navigated;
 
     bool CanGoBack
     {

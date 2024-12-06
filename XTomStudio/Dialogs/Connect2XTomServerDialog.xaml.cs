@@ -1,8 +1,6 @@
 // Copyright (c) Microsoft Corporation and Contributors.
 // Licensed under the MIT License.
 
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using XTomStudio.Core.Models;
 using XTomStudio.ViewModels;
 
