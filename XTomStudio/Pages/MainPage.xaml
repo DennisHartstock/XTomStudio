@@ -34,13 +34,13 @@
         ColumnDefinitions="2*, 1*" 
         RowDefinitions="Auto, *" 
         x:Name="ContentArea" 
-        Background="{StaticResource XTSAppXTomBackgroundBaseBrush}" 
+        Background="{StaticResource WhiteBrush}" 
         Loaded="OnLoaded">
 
         <Border 
                 x:Name="BorderBGRLayer" 
                 Visual="Collapsed" 
-                Background="{StaticResource NewProjectBackgroundFillColorBrush2}" 
+                Background="{StaticResource WhiteBrush}" 
                 Grid.ColumnSpan="2" Grid.RowSpan="2" 
                 ZIndex="98"/>
         <Grid 

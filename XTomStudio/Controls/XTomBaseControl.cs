@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Dispatching;
+using XTomStudio.Controls;
 using XTomStudio.Core.Backbone;
 using XTomStudio.Core.Contracts.Communication;
 using XTomStudio.Core.Models;
@@ -12,9 +14,9 @@ namespace XTomStudio.Controls
 
         public XTomBaseControl()
         {
-            //RemoteClient = App.GetService<IRemoteClient>();
-            //RemoteClient.ConfigurationChanged += RemoteClient_ConfigurationChanged;
-            //OnConfigurationChanged(RemoteClient.RemoteCtConfiguration);
+            RemoteClient = App.GetService<IRemoteClient>();
+            RemoteClient.ConfigurationChanged += RemoteClient_ConfigurationChanged;
+            OnConfigurationChanged(RemoteClient.RemoteCtConfiguration);
         }
 
         private void RemoteClient_ConfigurationChanged(object? sender, Core.Primitives.ConfigurationChangedEventArgs e)

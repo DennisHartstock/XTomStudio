@@ -2,7 +2,6 @@
 
 namespace XTomStudio.Controls;
 
-[ContentProperty(nameof(Content))]
 public sealed class TileControl : ContentView
 {
     public string Title
@@ -14,10 +13,33 @@ public sealed class TileControl : ContentView
     public static readonly BindableProperty TitleProperty =
         BindableProperty.Create(nameof(Title), typeof(string), typeof(TileControl), null);
 
-    //public TileControl()
-    //{
-    //    this.DefaultStyleKey = typeof(TileControl);
-    //}
+    public TileControl()
+    {
+        InitializeControl();
+
+        var pointerEnteredRecognizer = new PointerGestureRecognizer();
+        pointerEnteredRecognizer.PointerEntered += OnPointerEntered;
+        this.GestureRecognizers.Add(pointerEnteredRecognizer);
+
+        var pointerExitedRecognizer = new PointerGestureRecognizer();
+        pointerExitedRecognizer.PointerExited += OnPointerExited;
+        this.GestureRecognizers.Add(pointerExitedRecognizer);
+
+        var pointerPressedRecognizer = new PointerGestureRecognizer();
+        pointerPressedRecognizer.PointerPressed += OnPointerPressed;
+        this.GestureRecognizers.Add(pointerPressedRecognizer);
+
+        var pointerReleasedRecognizer = new PointerGestureRecognizer();
+        pointerReleasedRecognizer.PointerReleased += OnPointerReleased;
+        this.GestureRecognizers.Add(pointerReleasedRecognizer);
+    }
+
+    private void InitializeControl()
+    {
+        this.BackgroundColor = Colors.LightGray;
+        this.WidthRequest = 160;
+        this.HeightRequest = 160;
+    }
 
     protected override void OnApplyTemplate()
     {
@@ -28,22 +50,19 @@ public sealed class TileControl : ContentView
     protected override void OnHandlerChanged()
     {
         base.OnHandlerChanged();
-        //if (Handler != null)
-        //{
-        //    // Attach event handlers for pointer events
-        //    this.AddHandler(PointerEnteredEvent, OnPointerEntered, true);
-        //    this.AddHandler(PointerExitedEvent, OnPointerExited, true);
-        //    this.AddHandler(PointerPressedEvent, OnPointerPressed, true);
-        //    this.AddHandler(PointerReleasedEvent, OnPointerReleased, true);
-        //}
-        //else
-        //{
-        //    // Detach event handlers for pointer events
-        //    this.RemoveHandler(PointerEnteredEvent, OnPointerEntered);
-        //    this.RemoveHandler(PointerExitedEvent, OnPointerExited);
-        //    this.RemoveHandler(PointerPressedEvent, OnPointerPressed);
-        //    this.RemoveHandler(PointerReleasedEvent, OnPointerReleased);
-        //}
+        if (Handler != null)
+        {
+            // Attach event handlers for pointer events
+            //this.GestureRecognizers.Add(new PointerGestureRecognizer { PointerEntered = OnPointerEntered });
+            //this.GestureRecognizers.Add(new PointerGestureRecognizer { PointerExited = OnPointerExited });
+            //this.GestureRecognizers.Add(new PointerGestureRecognizer { PointerPressed = OnPointerPressed });
+            //this.GestureRecognizers.Add(new PointerGestureRecognizer { PointerReleased = OnPointerReleased });
+        }
+        else
+        {
+            // Detach event handlers for pointer events
+            this.GestureRecognizers.Clear();
+        }
     }
 
     private void OnPointerEntered(object sender, PointerEventArgs e)

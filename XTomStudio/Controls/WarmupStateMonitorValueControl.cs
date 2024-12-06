@@ -17,10 +17,17 @@ public sealed class WarmupStateMonitorValueControl : MonitorValueDisplayControl<
         BindableProperty.Create(nameof(LedColor), typeof(Brush), typeof(WarmupStateMonitorValueControl), Colors.LightGray);
 
 
-    //public WarmupStateMonitorValueControl()
-    //{
-    //    this.DefaultStyleKey = typeof(WarmupStateMonitorValueControl);
-    //}
+    public WarmupStateMonitorValueControl()
+    {
+        InitializeControl();
+    }
+
+    private void InitializeControl()
+    {
+        this.BackgroundColor = Colors.LightGray;
+        this.WidthRequest = 160;
+        this.HeightRequest = 160;
+    }
 
     protected override void ConvertToValue(RemoteWarmupState newValue)
     {

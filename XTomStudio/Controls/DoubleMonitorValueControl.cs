@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Microsoft.Maui.Controls;
 
 // To learn more about WinUI, the WinUI project structure,
@@ -36,15 +35,22 @@ public sealed class DoubleMonitorValueControl : MonitorValueDisplayControl<doubl
         BindableProperty.Create(nameof(PadLeft), typeof(int), typeof(DoubleMonitorValueControl), 0);
 
 
-    //public DoubleMonitorValueControl()
-    //{
-    //    this.DefaultStyleKey = typeof(DoubleMonitorValueControl);
-    //}
+    public DoubleMonitorValueControl()
+    {
+        InitializeControl();
+    }
 
-    //protected override void ConvertToValue(double newValue)
-    //{
-    //    Value = newValue.ToString(StringFormat, CultureInfo.InvariantCulture).PadLeft(PadLeft);
-    //}
+    private void InitializeControl()
+    {
+        this.BackgroundColor = Colors.LightGray;
+        this.WidthRequest = 160;
+        this.HeightRequest = 160;
+    }
+
+    protected override void ConvertToValue(double newValue)
+    {
+        Value = newValue.ToString(StringFormat, CultureInfo.InvariantCulture).PadLeft(PadLeft);
+    }
 
     private static void OnStringFormatChanged(BindableObject bindable, object oldValue, object newValue)
     {

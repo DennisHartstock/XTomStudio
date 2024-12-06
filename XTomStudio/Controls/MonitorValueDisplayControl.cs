@@ -1,6 +1,5 @@
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Dispatching;
-using Windows.System;
 using XTomStudio.Core.Backbone;
 using XTomStudio.Core.Models;
 
@@ -53,14 +52,14 @@ public class MonitorValueDisplayControl<T> : XTomBaseControl
 		ctrl?.OnConfigurationChanged(ctrl.RemoteClient.RemoteCtConfiguration);
 	}
 
-	public double TextWidth
+	public int TextWidth
     {
-        get => (double)GetValue(TextWidthProperty);
+        get => (int)GetValue(TextWidthProperty);
         set => SetValue(TextWidthProperty, value);
     }
 
 	public static readonly BindableProperty TextWidthProperty =
-		BindableProperty.Create(nameof(TextWidth), typeof(string), typeof(MonitorValueDisplayControl<T>), 70);
+		BindableProperty.Create(nameof(TextWidth), typeof(int), typeof(MonitorValueDisplayControl<T>), 70);
 
 
 	public string Unit
@@ -81,11 +80,11 @@ public class MonitorValueDisplayControl<T> : XTomBaseControl
     }
 
 	public static readonly BindableProperty RawValueProperty =
-		BindableProperty.Create(nameof(RawValue), typeof(string), typeof(MonitorValueDisplayControl<T>), default(T));
+		BindableProperty.Create(nameof(RawValue), typeof(T), typeof(MonitorValueDisplayControl<T>), default(T));
 
     #endregion
 
-    //public MonitorValueDisplayControl() => _dispatcher = Dispatcher.GetForCurrentThread();
+    public MonitorValueDisplayControl() => _dispatcher = Microsoft.Maui.Dispatching.Dispatcher.GetForCurrentThread();
 
     protected override void OnConfigurationChanged(RemoteCtConfiguration? configuration)
     {

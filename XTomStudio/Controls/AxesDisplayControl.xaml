@@ -10,7 +10,7 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <DataTemplate x:Key="AxisDisplayTemplate" x:DataType="models:AxisDisplayInfo">
-                <!--<HorizontalStackLayout>
+                <HorizontalStackLayout>
                     <xcontrols:DeviceStateMonitorValueControl 
                         WidthRequest="20" 
                         HorizontalOptions="Center" 
@@ -27,15 +27,15 @@
                         Text="{Binding Text, Mode=OneWay}" 
                         Unit="{Binding Unit, Mode=OneWay}" 
                         StringFormat="{Binding StringFormat, Mode=OneWay}"/>
-                </HorizontalStackLayout>-->
+                </HorizontalStackLayout>
             </DataTemplate>
         </ResourceDictionary>
     </ContentView.Resources>
     <Border>
-        <!--<CollectionView ItemsSource="{Binding ViewModel.AxesDisplayInfo}" VerticalOptions="Start" ItemTemplate="{StaticResource AxisDisplayTemplate}">
+        <CollectionView ItemsSource="{Binding ViewModel.AxesDisplayInfo}" VerticalOptions="Start" ItemTemplate="{StaticResource AxisDisplayTemplate}">
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Horizontal" Span="6" HorizontalItemSpacing="12"/>
             </CollectionView.ItemsLayout>
-        </CollectionView>-->
+        </CollectionView>
     </Border>
 </ContentView>

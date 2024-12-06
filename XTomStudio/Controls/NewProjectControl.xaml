@@ -13,15 +13,15 @@
             <Border.Shadow>
                 <Shadow />
             </Border.Shadow>
-            
+
             <Grid RowDefinitions ="300, *">
                 <Border Margin="30,20,400,20">
                     <Grid>
                         <Image Source="Images/xtom_new_project_front.tif" Aspect="AspectFill"/>
                         <Label Margin="10" Text="What would you like to do?" TextColor="#FF1E73BE" />
-                    </Grid>                    
+                    </Grid>
                 </Border>
-                
+
                 <!--<ParallaxView Grid.RowSpan="2" Source="{Binding ElementName=scrollviewer}" VerticalShift="500">
                     <Image Source="ms-appx:///Assets/Fotolia_72587205_XL.jpg" Stretch="UniformToFill"/>
                 </ParallaxView>-->
@@ -36,90 +36,50 @@
                     </Image>
                 </ScrollView>
 
-                    <HorizontalStackLayout Grid.Row="1" VerticalOptions="End" HorizontalOptions="End" Margin="0,0,20,20">
+                <HorizontalStackLayout Grid.Row="1" VerticalOptions="End" HorizontalOptions="End" Margin="0,0,20,20">
                     <Button Text="OK" BackgroundColor="Aquamarine" VerticalOptions="Center"/>
-                    <Button Text="Cancel" BackgroundColor="Aquamarine" Margin="10,0,0,0" VerticalOptions="Center"/>                    
+                    <Button Text="Cancel" BackgroundColor="Aquamarine" Margin="10,0,0,0" VerticalOptions="Center"/>
                 </HorizontalStackLayout>
-                
+
                 <ScrollView
                     Grid.Row="1">
-                    
+
                     <HorizontalStackLayout>
+
                         <Label Margin="15,20,0,0"  Text="CT Projects" />
-                        
-                        
-                        <!--<GridView Margin="15,5,0,0">
-                            <xcontrols:TileControl Title="CT SCAN" Width="160" Height="160">
+                        <Grid ColumnDefinitions="*, *, *" Margin="15,5,0,0">
+                            <xcontrols:TileControl Title="CT SCAN" Grid.Column="0" Width="160" Height="160"/>
+                            <xcontrols:TileControl Title="SIMPLE SCAN" Grid.Column="1" Width="160" Height="160"/>
+                            <xcontrols:TileControl Title="CT MEASUREMENT" Grid.Column="2" Width="160" Height="160"/>
+                        </Grid>
 
-                            </xcontrols:TileControl>
-                            <xcontrols:TileControl Title="SIMPLE SCAN" Width="160" Height="160">
-
-                            </xcontrols:TileControl>
-                            <xcontrols:TileControl Title="CT MEASUREMENT" Width="160" Height="160">
-
-                            </xcontrols:TileControl>
-                        </GridView>-->
-                        
-                        
                         <Label Margin="15,20,0,0"  Text="Last Projects" />
-                        
-                        
-                        <!--<GridView Margin="10,5,0,0">
-                            <xcontrols:TileControl Title="TestScan1" Width="160" Height="160">
+                        <Grid ColumnDefinitions="*, *, *, *" Margin="10,5,0,0">
+                            <xcontrols:TileControl Title="TestScan1" Grid.Column="0" Width="160" Height="160"/>
+                            <xcontrols:TileControl Title="TestScan2" Grid.Column="1" Width="160" Height="160"/>
+                            <xcontrols:TileControl Title="TestScan3" Grid.Column="2" Width="160" Height="160"/>
+                            <xcontrols:TileControl Title="TestScan4" Grid.Column="3" Width="160" Height="160"/>
+                        </Grid>
 
-                            </xcontrols:TileControl>
-                            <xcontrols:TileControl Title="TestScan2" Width="160" Height="160">
-
-                            </xcontrols:TileControl>
-                            <xcontrols:TileControl Title="TestScan3" Width="160" Height="160">
-
-                            </xcontrols:TileControl>
-                            <xcontrols:TileControl Title="TestScan4" Width="160" Height="160">
-
-                            </xcontrols:TileControl>
-                        </GridView>-->
-                        
-                        
                         <Label Margin="15,20,0,0"  Text="Favorites" />
-                        
-                        
-                        <!--<GridView Margin="10,5,0,0">
-                            <xcontrols:TileControl Title="Favorite 1" Width="160" Height="160">
+                        <Grid ColumnDefinitions="*, *, *" Margin="10,5,0,0">
+                            <xcontrols:TileControl Title="Favorite 1" Grid.Column="0" Width="160" Height="160"/>
+                            <xcontrols:TileControl Title="Favorite 2" Grid.Column="1" Width="160" Height="160"/>
+                            <xcontrols:TileControl Title="Favorite 3" Grid.Column="2" Width="160" Height="160"/>
+                        </Grid>
 
-                            </xcontrols:TileControl>
-                            <xcontrols:TileControl Title="Favorite 2" Width="160" Height="160">
-
-                            </xcontrols:TileControl>
-                            <xcontrols:TileControl Title="Favorite 3" Width="160" Height="160">
-
-                            </xcontrols:TileControl>
-                        </GridView>-->
-                        
-                        
                         <Label Margin="15,20,0,0"  Text="Specials" />
-                        
-                        
-                        <!--<GridView Margin="10,5,0,0">
-                            <xcontrols:TileControl Title="Just Control" Width="160" Height="160">
+                        <Grid Margin="10,5,0,0">
+                            <xcontrols:TileControl Title="Just Control" Width="160" Height="160"/>
+                        </Grid>
 
-                            </xcontrols:TileControl>
-                        </GridView>-->
-                        
-                        
                         <Label Margin="15,20,0,0"  Text="Service" />
-                        
-                        
-                        <!--<GridView Margin="10,5,0,0">
-                            <xcontrols:TileControl Title="Ball Calibration" Width="160" Height="160">
-
-                            </xcontrols:TileControl>
-                        </GridView>-->
-
+                        <Grid Margin="10,5,0,0">
+                            <xcontrols:TileControl Title="Ball Calibration" Width="160" Height="160"/>
+                        </Grid>
                     </HorizontalStackLayout>
                 </ScrollView>
-                
             </Grid>
-            
         </Border>
     </Grid>
 </ContentView>

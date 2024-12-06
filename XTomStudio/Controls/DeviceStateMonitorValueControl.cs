@@ -16,10 +16,17 @@ public sealed class DeviceStateMonitorValueControl : MonitorValueDisplayControl<
         BindableProperty.Create(nameof(LedColor), typeof(Brush), typeof(DeviceStateMonitorValueControl), new SolidColorBrush(Colors.LightGray));
 
 
-    //public DeviceStateMonitorValueControl()
-    //{
-    //    this.DefaultStyleKey = typeof(DeviceStateMonitorValueControl);
-    //}
+    public DeviceStateMonitorValueControl()
+    {
+        InitializeControl();
+    }
+
+    private void InitializeControl()
+    {
+        this.BackgroundColor = Colors.LightGray;
+        this.WidthRequest = 160;
+        this.HeightRequest = 160;
+    }
 
     protected override void ConvertToValue(RemoteDeviceState newValue)
     {
