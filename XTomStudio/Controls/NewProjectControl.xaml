@@ -48,34 +48,34 @@
 
                         <Label Margin="15,20,0,0"  Text="CT Projects" />
                         <Grid ColumnDefinitions="*, *, *" Margin="15,5,0,0">
-                            <xcontrols:TileControl Title="CT SCAN" Grid.Column="0" Width="160" Height="160"/>
-                            <xcontrols:TileControl Title="SIMPLE SCAN" Grid.Column="1" Width="160" Height="160"/>
-                            <xcontrols:TileControl Title="CT MEASUREMENT" Grid.Column="2" Width="160" Height="160"/>
+                            <xcontrols:TileControl Title="CT SCAN" Grid.Column="0" WidthRequest="160" HeightRequest="160"/>
+                            <xcontrols:TileControl Title="SIMPLE SCAN" Grid.Column="1" WidthRequest="160" HeightRequest="160"/>
+                            <xcontrols:TileControl Title="CT MEASUREMENT" Grid.Column="2" WidthRequest="160" HeightRequest="160"/>
                         </Grid>
 
                         <Label Margin="15,20,0,0"  Text="Last Projects" />
                         <Grid ColumnDefinitions="*, *, *, *" Margin="10,5,0,0">
-                            <xcontrols:TileControl Title="TestScan1" Grid.Column="0" Width="160" Height="160"/>
-                            <xcontrols:TileControl Title="TestScan2" Grid.Column="1" Width="160" Height="160"/>
-                            <xcontrols:TileControl Title="TestScan3" Grid.Column="2" Width="160" Height="160"/>
-                            <xcontrols:TileControl Title="TestScan4" Grid.Column="3" Width="160" Height="160"/>
+                            <xcontrols:TileControl Title="TestScan1" Grid.Column="0" WidthRequest="160" HeightRequest="160"/>
+                            <xcontrols:TileControl Title="TestScan2" Grid.Column="1" WidthRequest="160" HeightRequest="160"/>
+                            <xcontrols:TileControl Title="TestScan3" Grid.Column="2" WidthRequest="160" HeightRequest="160"/>
+                            <xcontrols:TileControl Title="TestScan4" Grid.Column="3" WidthRequest="160" HeightRequest="160"/>
                         </Grid>
 
                         <Label Margin="15,20,0,0"  Text="Favorites" />
                         <Grid ColumnDefinitions="*, *, *" Margin="10,5,0,0">
-                            <xcontrols:TileControl Title="Favorite 1" Grid.Column="0" Width="160" Height="160"/>
-                            <xcontrols:TileControl Title="Favorite 2" Grid.Column="1" Width="160" Height="160"/>
-                            <xcontrols:TileControl Title="Favorite 3" Grid.Column="2" Width="160" Height="160"/>
+                            <xcontrols:TileControl Title="Favorite 1" Grid.Column="0" WidthRequest="160" HeightRequest="160"/>
+                            <xcontrols:TileControl Title="Favorite 2" Grid.Column="1" WidthRequest="160" HeightRequest="160"/>
+                            <xcontrols:TileControl Title="Favorite 3" Grid.Column="2" WidthRequest="160" HeightRequest="160"/>
                         </Grid>
 
                         <Label Margin="15,20,0,0"  Text="Specials" />
                         <Grid Margin="10,5,0,0">
-                            <xcontrols:TileControl Title="Just Control" Width="160" Height="160"/>
+                            <xcontrols:TileControl Title="Just Control" WidthRequest="160" HeightRequest="160"/>
                         </Grid>
 
                         <Label Margin="15,20,0,0"  Text="Service" />
                         <Grid Margin="10,5,0,0">
-                            <xcontrols:TileControl Title="Ball Calibration" Width="160" Height="160"/>
+                            <xcontrols:TileControl Title="Ball Calibration" WidthRequest="160" HeightRequest="160"/>
                         </Grid>
                     </HorizontalStackLayout>
                 </ScrollView>

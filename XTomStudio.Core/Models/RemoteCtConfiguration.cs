@@ -17,10 +17,10 @@ public class RemoteCtConfiguration
 
 	public Dictionary<string, RemoteCtAxis> AxisConfigurations { get; }
 
-	//public IEnumerable<RemoteTrajectoryConfiguration> TrajectoryConfigurations
- //   {
- //       get;
- //   }
+    public IEnumerable<RemoteTrajectoryConfiguration> TrajectoryConfigurations
+    {
+        get;
+    }
 
     public RemoteCtConfiguration(RemoteCtDetector xrayDetector, RemoteCtSource xraySource, Dictionary<string, RemoteCtAxis> axisConfigurations)
     {

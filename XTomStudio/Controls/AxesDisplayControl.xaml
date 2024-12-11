@@ -31,6 +31,7 @@
             </DataTemplate>
         </ResourceDictionary>
     </ContentView.Resources>
+    
     <Border>
         <CollectionView ItemsSource="{Binding ViewModel.AxesDisplayInfo}" VerticalOptions="Start" ItemTemplate="{StaticResource AxisDisplayTemplate}">
             <CollectionView.ItemsLayout>

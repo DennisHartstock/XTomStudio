@@ -26,34 +26,35 @@
             <converters:BoolToObjectConverter x:Key="BoolToOpacityConverter" FalseObject="0" TrueObject="1" />
             
             <DataTemplate x:Key="PivotItemStepsTemplate" x:DataType="models:ProjectItemStepData">
-                
-                <!--<Grid>
-                    
-                </Grid>-->
-                
+
+                <Grid>
+
+                </Grid>
             </DataTemplate>
 
-            <!--<DataTemplate x:Key="PivotHeaderStepsTemplate" x:DataType="models:ProjectItemStepData">
-                <TabViewItem IsClosable="False">
-                    <TabViewItem.Header>
-                        <StackPanel Orientation="Horizontal">
+            <DataTemplate x:Key="PivotHeaderStepsTemplate" x:DataType="models:ProjectItemStepData">
+                <!--<TabViewItem IsClosable="False">-->
+                    <!--<TabViewItem.Header>-->
+                
+                        <HorizontalStackLayout>
                             <Button x:Name="BtnMain"
                                     Style="{StaticResource DefaultButtonStyle}"
                                     CornerRadius="15"
                                     Height="30"
                                     Width="30"
                                     Padding="2"
-                                    IsEnabled="{x:Bind IsEnabled}"
-                                    Command="{x:Bind ViewModel.StepClickedCommand}"
-                                    CommandParameter="{x:Bind Tag}"
-                                    ToolTipService.ToolTip="{x:Bind Tooltip}"                                
-                                    HorizontalAlignment="Center">
-                                <Button.Transitions>
+                                    IsEnabled="{Binding IsEnabled}"
+                                    Command="{Binding ViewModel.StepClickedCommand}"
+                                    CommandParameter="{Binding Tag}"                         
+                                    HorizontalOptions="Center">
+                                
+                                <!--<Button.Transitions>
                                     <TransitionCollection>
                                         <ContentThemeTransition   />
                                     </TransitionCollection>
-                                </Button.Transitions>
-                                <i:Interaction.Behaviors>
+                                </Button.Transitions>-->
+                                
+                                <!--<i:Interaction.Behaviors>
                                     <Core:DataTriggerBehavior Binding="{x:Bind IsIcon}" Value="True">
                                         <Core:ChangePropertyAction PropertyName="Content">
                                             <Core:ChangePropertyAction.Value>
@@ -68,26 +69,30 @@
                                             </Core:ChangePropertyAction.Value>
                                         </Core:ChangePropertyAction>
                                     </Core:DataTriggerBehavior>
-                                </i:Interaction.Behaviors>
+                                </i:Interaction.Behaviors>-->
+                                
                             </Button>
-                            <TextBlock Text="{x:Bind Tooltip}" Margin="5,0,0,0" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource DetailSubTitleStyle}"/>
 
-                        </StackPanel>
-                    </TabViewItem.Header>-->
-                    
-                    <!--<StackPanel Orientation="Horizontal">
-                        <Button x:Name="BtnMain"
+                    <Label 
+                                Text="{Binding Tooltip}" 
+                                Margin="5,0,0,0" 
+                                FontSize="16" 
+                                HorizontalOptions="Center" 
+                                VerticalOptions="Center" 
+                                Style="{StaticResource DetailSubTitleStyle}"/>
+
+                    <!--<Button x:Name="BtnMain"
                                 Style="{StaticResource DefaultButtonStyle}"
                                 CornerRadius="15"
                                 Height="30"
                                 Width="30"
                                 Padding="2"
-                                IsEnabled="{x:Bind IsEnabled}"
-                                Command="{x:Bind ViewModel.StepClickedCommand}"
-                                CommandParameter="{x:Bind Tag}"
-                                ToolTipService.ToolTip="{x:Bind Tooltip}"                                
-                                HorizontalAlignment="Center">
-                            <Button.Transitions>
+                                IsEnabled="{Binding IsEnabled}"
+                                Command="{Binding ViewModel.StepClickedCommand}"
+                                CommandParameter="{Binding Tag}"                             
+                                HorizontalOptions="Center">-->
+                            
+                            <!--<Button.Transitions>
                                 <TransitionCollection>
                                     <ContentThemeTransition   />
                                 </TransitionCollection>
@@ -107,51 +112,68 @@
                                         </Core:ChangePropertyAction.Value>
                                     </Core:ChangePropertyAction>
                                 </Core:DataTriggerBehavior>
-                            </i:Interaction.Behaviors>
-                        </Button>
-                        <TextBlock Text="{x:Bind Tooltip}" Margin="5,0,0,0" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource DetailSubTitleStyle}"/>
+                            </i:Interaction.Behaviors>-->
+                            
+                        <!--</Button>-->
+                        
+                        <Label 
+                            Text="{Binding Tooltip}" 
+                            Margin="5,0,0,0" 
+                            FontSize="16" 
+                            HorizontalOptions="Center" 
+                            VerticalOptions="Center" 
+                            Style="{StaticResource DetailSubTitleStyle}"/>
 
-                    </StackPanel>-->
+                    </HorizontalStackLayout>
+                
                 <!--</TabViewItem>-->
                 
                 
-            <!--</DataTemplate>-->
+            </DataTemplate>
 
-            <!--<DataTemplate x:Key="ItemsRepeaterStepsTemplate" x:DataType="models:ProjectItemStepData">
-                <StackPanel Orientation="Horizontal">
-                    <Grid x:Name="GridTag" Height="52" Width="52" Padding="0" >
-                        <Grid.Resources>
+            <DataTemplate x:Key="ItemsRepeaterStepsTemplate" x:DataType="models:ProjectItemStepData">
+                
+                <HorizontalStackLayout>
+                    
+                    <Grid x:Name="GridTag" HeightRequest="52" WidthRequest="52" Padding="0" >
+                        <!--<Grid.Resources>
+                            
                             <Storyboard x:Name="OpacityAnimationSelected">
                                 <DoubleAnimation Storyboard.TargetName="EllipseSelected" Storyboard.TargetProperty="(UIElement.Opacity)" From="0" To="1" >
                                     <DoubleAnimation.EasingFunction>
                                         <ExponentialEase Exponent="4" EasingMode="EaseOut" />
                                     </DoubleAnimation.EasingFunction>
                                 </DoubleAnimation>
-                            </Storyboard>   
-                        </Grid.Resources>
+                            </Storyboard>  
+                            
+                        </Grid.Resources>-->
+                        
                         <Ellipse x:Name="EllipseSelected" 
-                                 Height="32" 
-                                 Width="32" 
+                                 HeightRequest="32" 
+                                 WidthRequest="32" 
                                  StrokeThickness="2"
-                                 Visibility="{x:Bind IsSelected}"
-                                 Opacity="{x:Bind IsSelected, Converter={StaticResource BoolToOpacityConverter}}" 
-                                 Stroke="{ThemeResource AppBarButtonBackgroundBrush}">
-                            <Ellipse.OpacityTransition>
+                                 IsVisible="{Binding IsSelected}"
+                                 Opacity="{Binding IsSelected, Converter={StaticResource BoolToOpacityConverter}}" 
+                                 Stroke="{StaticResource AppBarButtonBackgroundBrush}">
+                            
+                            <!--<Ellipse.OpacityTransition>
                                 <ScalarTransition Duration="00:00:00.5" />
-                            </Ellipse.OpacityTransition>
+                            </Ellipse.OpacityTransition>-->
+                            
                         </Ellipse>
-                        <Button x:Name="BtnMain"
+                        
+                        <!--<Button x:Name="BtnMain"
                                 Style="{StaticResource DefaultButtonStyle}"
                                 CornerRadius="13"
                                 Height="26"
                                 Width="26"
                                 Padding="2"
-                                IsEnabled="{x:Bind IsEnabled}"
-                                Command="{x:Bind ViewModel.StepClickedCommand}"
-                                CommandParameter="{x:Bind Tag}"
-                                ToolTipService.ToolTip="{x:Bind Tooltip}"                                
-                                HorizontalAlignment="Center">
-                            <Button.Transitions>
+                                IsEnabled="{Binding IsEnabled}"
+                                Command="{Binding ViewModel.StepClickedCommand}"
+                                CommandParameter="{Binding Tag}"                             
+                                HorizontalOptions="Center">-->
+                            
+                            <!--<Button.Transitions>
                                 <TransitionCollection>
                                     <ContentThemeTransition   />
                                 </TransitionCollection>
@@ -171,22 +193,36 @@
                                         </Core:ChangePropertyAction.Value>
                                     </Core:ChangePropertyAction>
                                 </Core:DataTriggerBehavior>
-                            </i:Interaction.Behaviors>
-                        </Button>
+                            </i:Interaction.Behaviors>-->
+                            
+                        <!--</Button>-->
                     </Grid>
-                    <TextBlock x:Name="HeaderTextBlock" Margin="0,0,0,2" Text="{x:Bind Tooltip}" Style="{StaticResource ProjectPaneHeaderStyle}" VerticalAlignment="Center" />
-                    <Border x:Name="BorderLine" Visibility="{x:Bind HasLine}" Margin="10,0,0,0" Width="60" >
+                    
+                    <Label 
+                        x:Name="HeaderTextBlock" 
+                        Margin="0,0,0,2" 
+                        Text="{Binding Tooltip}" 
+                        Style="{StaticResource ProjectPaneHeaderStyle}" 
+                        VerticalOptions="Center" />
+                    
+                    <Border 
+                        x:Name="BorderLine" 
+                        IsVisible="{Binding HasLine}" 
+                        Margin="10,0,0,0" 
+                        Width="60" >
+                        
                         <Border.Resources>
-                            <Storyboard x:Name="StoryboardRectangleIsLineEnabled">
+                            <!--<Storyboard x:Name="StoryboardRectangleIsLineEnabled">
                                 <DoubleAnimation Storyboard.TargetName="ConnectionRectangle" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" From="0" To="1" >
                                     <DoubleAnimation.EasingFunction>
                                         <ExponentialEase Exponent="10" EasingMode="EaseOut" />
                                     </DoubleAnimation.EasingFunction>
                                 </DoubleAnimation>
-                            </Storyboard>
+                            </Storyboard>-->
                         </Border.Resources>
+                        
                         <Rectangle x:Name="ConnectionRectangle" Height="2" Width="60" StrokeThickness="1" RadiusX="1" RadiusY="1">
-                            <Rectangle.RenderTransform>
+                            <!--<Rectangle.RenderTransform>
                                 <ScaleTransform ScaleX="1"/>
                             </Rectangle.RenderTransform>
                             <i:Interaction.Behaviors>
@@ -197,45 +233,59 @@
                                 <Core:DataTriggerBehavior Binding="{x:Bind IsLineEnabled}" Value="False">
                                     <Core:ChangePropertyAction PropertyName="Stroke" Value="#0FFFFFFF"/>
                                 </Core:DataTriggerBehavior>
-                            </i:Interaction.Behaviors>
+                            </i:Interaction.Behaviors>-->
                         </Rectangle>
                     </Border>                    
-                </StackPanel>                                                
-            </DataTemplate>-->            
+                </HorizontalStackLayout>                                                
+            </DataTemplate>            
         </ResourceDictionary>
     </ContentView.Resources>
 
-    <!--<Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="48"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
-        </Grid.RowDefinitions>
-        <ItemsRepeater x:Name="NavLinksList" Margin="8,0,0,0" Grid.Row="0" VerticalAlignment="Stretch" 
-                   ItemsSource="{x:Bind ViewModel.ProjectSteps, Mode=OneWay}" ItemTemplate="{StaticResource ItemsRepeaterStepsTemplate}">
-            <ItemsRepeater.Layout>
-                <StackLayout Orientation="Horizontal"/>
-            </ItemsRepeater.Layout>
-        </ItemsRepeater>
-        <Frame Grid.Row="1" x:Name="NavigationFrame"/>
+    <Grid RowDefinitions="48, *, 50">
+
+        <CollectionView x:Name="NavLinksList"
+                        ItemsSource="{Binding ViewModel.ProjectSteps}"
+                        ItemTemplate="{StaticResource ItemsRepeaterStepsTemplate}"
+                        ItemsLayout="HorizontalList">
+        </CollectionView>
+
+        <Border Grid.Row="1" x:Name="NavigationFrame"/>
+        
         <Border Grid.Row="2" >
-            <RelativePanel HorizontalAlignment="Stretch" VerticalAlignment="Center" >
-                <Button x:Name="BtnPreviousStep" Style="{StaticResource AccentButtonStyle}" Background="{ThemeResource ProjectPaneButtonBrush}" Foreground="White" Margin="10,0,0,0" Width="180"
-                    Visibility="{x:Bind ViewModel.IsPreviousStepVisible, Mode=OneWay}" HorizontalContentAlignment="Left" RelativePanel.AlignLeftWithPanel="True" 
-                    Command="{x:Bind ViewModel.PreviousStepCommand}">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE973;"/>
-                        <TextBlock Margin="8,0,0,0" Text="Previous Step"/>
-                    </StackPanel>
-                </Button>
-                <Button Style="{StaticResource AccentButtonStyle}" Background="{ThemeResource ProjectPaneButtonBrush}" Foreground="White" Margin="0,0,10,0" Width="180" 
-                    HorizontalContentAlignment="Right" RelativePanel.AlignRightWithPanel="True" Command="{x:Bind ViewModel.NextStepCommand}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Accept and Proceed"/>
-                        <FontIcon FontFamily="Segoe MDL2 Assets" Margin="8,0,0,0" Glyph="&#xE73E;"/>
-                    </StackPanel>
-                </Button>
-            </RelativePanel>
-        </Border>-->
-    <!--</Grid>-->
+
+            <Grid ColumnDefinitions="Auto, *, Auto" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+
+                <Button 
+                    x:Name="BtnPreviousStep" 
+                    Style="{StaticResource AccentButtonStyle}" 
+                    BackgroundColor="{StaticResource ProjectPaneButtonBrush}" 
+                    TextColor="White" 
+                    Margin="10,0,0,0" 
+                    WidthRequest="180"
+                    IsVisible="{Binding ViewModel.IsPreviousStepVisible}" 
+                    HorizontalOptions="Start" 
+                    Command="{Binding ViewModel.PreviousStepCommand}"/>
+
+                <HorizontalStackLayout HorizontalOptions="Start">
+                    <Label Text="&#xE973;" FontFamily="Segoe MDL2 Assets" />
+                    <Label Text="Previous Step" Margin="8,0,0,0" />
+                </HorizontalStackLayout>
+
+
+                <Button 
+                    Style="{StaticResource AccentButtonStyle}" 
+                    BackgroundColor="{StaticResource ProjectPaneButtonBrush}" 
+                    TextColor="White" 
+                    Margin="0,0,10,0" 
+                    WidthRequest="180"
+                    HorizontalOptions="End" 
+                    Command="{Binding ViewModel.NextStepCommand}"/>
+
+                <HorizontalStackLayout HorizontalOptions="End">
+                    <Label Text="Accept and Proceed" />
+                    <Label Text="&#xE73E;" FontFamily="Segoe MDL2 Assets" Margin="8,0,0,0" />
+                </HorizontalStackLayout>
+            </Grid>
+        </Border>
+    </Grid>
 </ContentView>

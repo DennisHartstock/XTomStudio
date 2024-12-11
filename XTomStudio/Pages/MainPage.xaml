@@ -189,13 +189,14 @@
                 </Grid>
             </xcontrols:TileControl>
 
+            <Border Margin="5,20,5,20">
+                <xcontrols:AxesDisplayControl/>
+            </Border>
+
             <xcontrols:TileControl 
                 x:Name="ManipulatorTile" 
                 Grid.Column="3"  
                 Title="MANIPULATOR">
-
-                <!--<Border Margin="5,20,5,20">
-                    <xcontrols:AxesDisplayControl/>-->
 
                 <Grid
                         RowDefinitions="*, *, *"
@@ -236,7 +237,6 @@
                             Unit="µm" 
                             StringFormat="N1"/>
                 </Grid>
-                <!--</Border>-->
             </xcontrols:TileControl>
 
             <xcontrols:TileControl 
