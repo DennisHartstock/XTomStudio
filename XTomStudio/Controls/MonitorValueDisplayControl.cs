@@ -49,7 +49,7 @@ public class MonitorValueDisplayControl<T> : XTomBaseControl
 	private static void OnMonitorValueChanged(BindableObject bindable, object oldValue, object newValue)
 	{
 		var ctrl = bindable as MonitorValueDisplayControl<T>;
-		ctrl?.OnConfigurationChanged(ctrl.RemoteClient.RemoteCtConfiguration);
+		//ctrl?.OnConfigurationChanged(ctrl.RemoteClient.RemoteCtConfiguration);
 	}
 
 	public int TextWidth

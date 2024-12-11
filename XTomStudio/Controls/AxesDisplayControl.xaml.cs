@@ -13,7 +13,7 @@ public partial class AxesDisplayControl : ContentView
 
     public AxesDisplayControl()
     {
-        ViewModel = App.GetService<AxesDisplayControlModel>();
+        //ViewModel = App.GetService<AxesDisplayControlModel>();
         InitializeComponent();
     }
 }

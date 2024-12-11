@@ -11,6 +11,7 @@ namespace XTomStudio
         internal static T GetService<T>()
         {
             throw new NotImplementedException();
+            
         }
 
         protected override Window CreateWindow(IActivationState? activationState)

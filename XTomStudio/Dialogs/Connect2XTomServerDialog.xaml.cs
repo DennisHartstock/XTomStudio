@@ -18,9 +18,9 @@ public sealed partial class Connect2XTomServerDialog : ContentPage
     public Connect2XTomServerDialog()
     {
         InitializeComponent();
-        ViewModel = App.GetService<Connect2XTomServerViewModel>();
-        BindingContext = ViewModel;
-        ViewModel.ConnectionEstablished += ViewModel_ConnectionEstablished;
+        //ViewModel = App.GetService<Connect2XTomServerViewModel>();
+        //BindingContext = ViewModel;
+        //ViewModel.ConnectionEstablished += ViewModel_ConnectionEstablished;
     }
 
     private void ViewModel_ConnectionEstablished(object? sender, Contracts.Dialogs.ConnectionEstablishedEventargs e)
